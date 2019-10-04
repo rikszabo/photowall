@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
+import AddPhoto from './AddPhoto';
 
 class Main extends Component {
   constructor() {
@@ -27,10 +28,21 @@ class Main extends Component {
           imageLink:
             'https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/24/104670887-VacationExplainsTHUMBWEB.1910x1000.jpg'
         }
-      ]
+      ],
+      screen: 'photos' //photos, addPhotos
     };
     //important
-    //this.removePhoto = this.removePhoto.bind(this);
+    this.removePhoto = this.removePhoto.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+    console.log(prevState.posts);
+    console.log('this.state', this.state);
   }
 
   removePhoto(postRemoved) {
@@ -43,8 +55,20 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Title title={'PhotoWall'} />
-        <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} />
+        {this.state.screen === 'photos' && (
+          <div>
+            <Title title={'PhotoWall'} />
+            <PhotoWall
+              posts={this.state.posts}
+              onRemovePhoto={this.removePhoto}
+            />
+          </div>
+        )}
+        {this.state.screen === 'addPhoto' && (
+          <div>
+            <AddPhoto />
+          </div>
+        )}
       </div>
     );
   }
