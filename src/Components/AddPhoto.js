@@ -25,7 +25,7 @@ class AddPhoto extends Component {
       <div>
         <h1> PhotoWall</h1>
         <div className="form">
-          <form onSUbmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="Link" name="link" />
             <input type="text" placeholder="Description" name="description" />
             <button> Post</button>

@@ -37,15 +37,15 @@ class Main extends Component {
     // this.navigate = this.navigate.bind(this);
   }
 
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
+  // componentDidMount() {
+  //   console.log('componentDidMount');
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
-    console.log(prevState.posts);
-    console.log('this.state', this.state);
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('componentDidUpdate');
+  //   console.log(prevState.posts);
+  //   console.log('this.state', this.state);
+  // }
 
   removePhoto(postRemoved) {
     console.log(postRemoved.description);
@@ -75,18 +75,18 @@ class Main extends Component {
           render={() => (
             <div>
               <Title title={'PhotoWall'} />
-              <PhotoWall
+              {/* <PhotoWall
                 posts={this.state.posts}
                 onRemovePhoto={this.removePhoto}
                 onNavigate={this.navigate}
-              />
+              /> */}
             </div>
           )}
         />
 
-        <Route
+        {/* <Route
           path="/AddPhoto"
-          render={() => (
+          render={({ history }) => (
             <AddPhoto
               onAddPhoto={addedPost => {
                 this.addPhoto(addedPost);
@@ -94,7 +94,7 @@ class Main extends Component {
               }}
             />
           )}
-        />
+        /> */}
       </div>
     );
   }
